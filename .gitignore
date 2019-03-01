@@ -1,0 +1,9 @@
+docker-compose.yml
+.env
+wp-content/themes/twentysixteen/
+wp-content/themes/twentyseventeen/
+wp-content/themes/twentynineteen/
+wp-content/plugins/akismet/
+wp-content/themes/forrrest/sass/*
+wp-content/themes/forrrest/.sass-cache
+wp-content/themes/forrrest/style.css.map
