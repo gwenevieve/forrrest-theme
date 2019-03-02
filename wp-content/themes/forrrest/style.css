@@ -558,39 +558,41 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%; }
-  .main-navigation ul {
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding-left: 0; }
-    .main-navigation ul ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      float: left;
-      position: absolute;
-      top: 100%;
+.main-navigation ul,
+.secondary-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0; }
+  .main-navigation ul ul,
+  .secondary-navigation ul ul {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 100%;
+    left: -999em;
+    z-index: 99999; }
+    .main-navigation ul ul ul,
+    .secondary-navigation ul ul ul {
       left: -999em;
-      z-index: 99999; }
-      .main-navigation ul ul ul {
-        left: -999em;
-        top: 0; }
-      .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-        left: 100%; }
-      .main-navigation ul ul a {
-        width: 200px; }
-    .main-navigation ul li:hover > ul,
-    .main-navigation ul li.focus > ul {
-      left: auto; }
-  .main-navigation li {
-    float: left;
-    position: relative; }
-  .main-navigation a {
-    display: block;
-    text-decoration: none; }
+      top: 0; }
+    .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul,
+    .secondary-navigation ul ul li:hover > ul,
+    .secondary-navigation ul ul li.focus > ul {
+      left: 100%; }
+    .main-navigation ul ul a,
+    .secondary-navigation ul ul a {
+      width: 200px; }
+  .main-navigation ul li:hover > ul,
+  .main-navigation ul li.focus > ul,
+  .secondary-navigation ul li:hover > ul,
+  .secondary-navigation ul li.focus > ul {
+    left: auto; }
+.main-navigation li,
+.secondary-navigation li {
+  position: relative; }
+.main-navigation a,
+.secondary-navigation a {
+  display: block;
+  text-decoration: none; }
 
 /* Small menu. */
 .menu-toggle,
@@ -826,5 +828,77 @@ object {
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+.site-header {
+  padding: 0px 30px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 30%;
+  left: 0;
+  height: 100%;
+  background: #f4f4f4; }
+  .site-header .site-branding {
+    text-align: center;
+    padding-top: 20px; }
+    .site-header .site-branding .site-description {
+      color: #6f6f6f;
+      margin: 0px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300; }
+    .site-header .site-branding h1 {
+      font-family: 'Lato', sans-serif;
+      font-size: 35px;
+      margin: 0px; }
+    .site-header .site-branding a {
+      color: #2d2d2d;
+      text-decoration: none; }
+      .site-header .site-branding a:visited {
+        color: unset; }
+
+.navigations .main-navigation,
+.navigations .secondary-navigation {
+  padding: 20px 0px; }
+  .navigations .main-navigation ul,
+  .navigations .secondary-navigation ul {
+    text-align: center; }
+    .navigations .main-navigation ul li,
+    .navigations .secondary-navigation ul li {
+      padding: 6px 0px; }
+      .navigations .main-navigation ul li a,
+      .navigations .secondary-navigation ul li a {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        color: #2d2d2d; }
+        .navigations .main-navigation ul li a:hover,
+        .navigations .secondary-navigation ul li a:hover {
+          text-decoration: underline; }
+
+.site {
+  display: grid;
+  grid-template-columns: 30% 70%; }
+
+.site-content {
+  padding: 0px 40px; }
+
+.page-container {
+  grid-column-start: 2; }
+
+.site-footer {
+  background: #2d2d2d; }
+  .site-footer .site-info {
+    text-align: center;
+    padding: 20px 0px; }
+  .site-footer li {
+    list-style-type: none; }
+  .site-footer a {
+    text-decoration: none;
+    color: white; }
+  .site-footer .author-info a,
+  .site-footer .author-info span {
+    color: #cccccc; }
 
 /*# sourceMappingURL=style.css.map */

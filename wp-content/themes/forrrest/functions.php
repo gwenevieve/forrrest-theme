@@ -42,11 +42,6 @@ if ( ! function_exists( 'forrrest_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'forrrest' ),
-		) );
-
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -165,3 +160,18 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Registering menus.
+ */
+
+function register_my_menus() {
+	register_nav_menus(
+	  array(
+		'Primary menu' => __( 'Primary Menu'),
+		'Secondary menu' => __( 'Secondary Menu' ),
+		'Footer menu' => __( 'Footer Menu' )
+	  )
+	);
+  }
+  add_action( 'init', 'register_my_menus' );
