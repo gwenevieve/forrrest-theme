@@ -17,6 +17,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
+	<link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+
 	<?php wp_head(); ?>
 </head>
 
@@ -42,17 +45,27 @@
 				?>
 				<p class="site-description"><?php echo $forrrest_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'forrrest' ); ?></button>
+			</div><!-- .site-branding -->
+			<div class="navigations">
+			<nav id="site-primary-navigation" class="main-navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+			<?php esc_html_e( 'Primary Menu', 'forrrest' ); ?></button>
 			<?php
 			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
+				'theme_location' => 'Primary menu',
+				'container_class' => 'primary_menu',
 			) );
 			?>
-		</nav><!-- #site-navigation -->
+		</nav><!-- #site-primary-navigation -->
+		<nav id="site-secondary-navigation" class="secondary-navigation">
+			<button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false">
+			<?php esc_html_e( 'Secondary Menu', 'forrrest' ); ?></button>
+			<?php
+			wp_nav_menu( array( 
+				'theme_location' => 'Secondary menu',
+				'container_class' => 'secondary_menu' ) ); ?>
+		</nav><!-- #site-secondary-navigation -->
+		</div><!-- .navigations -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
