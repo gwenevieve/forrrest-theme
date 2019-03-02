@@ -836,7 +836,10 @@ object {
   padding: 0px 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  position: fixed;
+  width: 30%;
+  left: 0;
+  height: 100%;
   background: #f4f4f4; }
   .site-header .site-branding {
     text-align: center;
@@ -877,5 +880,21 @@ object {
 .site {
   display: grid;
   grid-template-columns: 30% 70%; }
+
+.site-content {
+  padding: 0px 40px; }
+
+.page-container {
+  grid-column-start: 2; }
+
+.site-footer {
+  background: #2d2d2d; }
+  .site-footer li {
+    list-style-type: none; }
+  .site-footer a {
+    text-decoration: none;
+    color: white; }
+  .site-footer span {
+    color: white; }
 
 /*# sourceMappingURL=style.css.map */
