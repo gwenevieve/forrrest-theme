@@ -889,12 +889,16 @@ object {
 
 .site-footer {
   background: #2d2d2d; }
+  .site-footer .site-info {
+    text-align: center;
+    padding: 20px 0px; }
   .site-footer li {
     list-style-type: none; }
   .site-footer a {
     text-decoration: none;
     color: white; }
-  .site-footer span {
-    color: white; }
+  .site-footer .author-info a,
+  .site-footer .author-info span {
+    color: #cccccc; }
 
 /*# sourceMappingURL=style.css.map */
