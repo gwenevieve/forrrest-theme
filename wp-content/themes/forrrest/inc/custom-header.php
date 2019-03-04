@@ -20,9 +20,10 @@ function forrrest_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'forrrest_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
-		'flex-height'            => true,
+		'flex-width'    		 => true,
+		'flex-height'			 => true,
+		'width'					 => 500,
+		'height'                 => 500,
 		'wp-head-callback'       => 'forrrest_header_style',
 	) ) );
 }

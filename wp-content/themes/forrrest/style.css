@@ -845,7 +845,6 @@ object {
     text-align: center;
     padding-top: 20px; }
     .site-header .site-branding .site-description {
-      color: #6f6f6f;
       margin: 0px;
       font-family: 'Lato', sans-serif;
       font-weight: 300; }
@@ -886,6 +885,8 @@ object {
 
 .page-container {
   grid-column-start: 2; }
+  .page-container .custom-header-container {
+    padding-bottom: 30px; }
 
 .site-footer {
   background: #2d2d2d; }

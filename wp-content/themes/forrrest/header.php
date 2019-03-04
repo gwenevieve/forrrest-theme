@@ -63,5 +63,16 @@
 		</div><!-- .navigations -->
 	</header><!-- #masthead -->
 
+
 	<div class="page-container">
+		<?php
+			if (is_front_page()) { ?>
+			<div class="custom-header-container">
+			<?php
+			the_header_image_tag();
+			?> 
+			</div>
+			<?php 
+			} ?>
+		
 	<div id="content" class="site-content">
