@@ -176,4 +176,12 @@ function register_my_menus() {
   }
   add_action( 'init', 'register_my_menus' );
 
-
+  function add_nav_classes() {
+  add_filter( 'nav_menu_css_class', 'menu_item_classes', 10, 4 );
+	function menu_item_classes( $classes, $item, $args, $depth ) {
+    	unset($classes);
+    	$classes[] = 'primary-li';
+    	return $classes;
+		}
+  	} 
+  add_action('init', 'add_nav_classes');

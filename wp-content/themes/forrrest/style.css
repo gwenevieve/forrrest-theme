@@ -853,7 +853,6 @@ object {
       font-size: 35px;
       margin: 0px; }
     .site-header .site-branding a {
-      color: #2d2d2d;
       text-decoration: none; }
       .site-header .site-branding a:visited {
         color: unset; }
@@ -870,8 +869,7 @@ object {
       .navigations .main-navigation ul li a,
       .navigations .secondary-navigation ul li a {
         font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        color: #2d2d2d; }
+        font-weight: 300; }
         .navigations .main-navigation ul li a:hover,
         .navigations .secondary-navigation ul li a:hover {
           text-decoration: underline; }

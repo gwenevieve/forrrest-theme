@@ -22,55 +22,76 @@ class forrrest_Customize {
 	public static function register ( $wp_customize ) {
 	   //1. Define a new section (if desired) to the Theme Customizer
 	   $wp_customize->add_section( 'Footer', 
-		  array(
-			 'title'       => __( 'Footer', 'forrrest' ), //Visible title of section
-			 'priority'    => 35, //Determines what order this appears in
-			 'capability'  => 'edit_theme_options', //Capability needed to tweak
-			 'description' => __('Allows you to customize settings for forrrest.', 'forrrest'), //Descriptive tooltip
-		  ) 
-	   );
+		  	array(
+			'title'       => __( 'Footer', 'forrrest' ), //Visible title of section
+			'priority'    => 35, //Determines what order this appears in
+			'capability'  => 'edit_theme_options', //Capability needed to tweak
+			'description' => __('Allows you to customize settings for forrrest.', 'forrrest'), //Descriptive tooltip
+			) 
+	   		);
 	   
-	   //2. Register new settings to the WP database...
-	   $wp_customize->add_setting( 'link_textcolor', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-		  array(
-			 'default'    => '#2BA6CB', //Default setting/value to save
-			 'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
-			 'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
-			 'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
-		  ) 
-	   );     
+		//2. Register new settings to the WP database...
+		$wp_customize->add_setting( 'link_textcolor', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
+			array(
+			'default'    => '#2BA6CB', //Default setting/value to save
+			'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
+			'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
+			'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
+			) 
+			);     
 	   
-	   $wp_customize->add_setting( 'nav_background', //No need to use a SERIALIZED name, as `theme_mod` settings already live under one db record
-	   array(
-		  'default'    => '#ffffff', //Default setting/value to save
-		  'type'       => 'theme_mod', //Is this an 'option' or a 'theme_mod'?
-		  'capability' => 'edit_theme_options', //Optional. Special permissions for accessing this setting.
-		  'transport'  => 'postMessage', //What triggers a refresh of the setting? 'refresh' or 'postMessage' (instant)?
-	   ) 
-	);   
+			$wp_customize->add_setting( 'nav_background', 
+			array(
+			'default'    => '#ffffff', 
+			'type'       => 'theme_mod', 
+			'capability' => 'edit_theme_options', 
+			'transport'  => 'postMessage', 
+			) 
+			);   
+
+			$wp_customize->add_setting( 'nav_link_textcolor', 
+			array(
+			'default'    => '#000000', 
+			'type'       => 'theme_mod', 
+			'capability' => 'edit_theme_options', 
+			'transport'  => 'postMessage', 
+			) 
+			);   
 			 
 	   //3. Finally, we define the control itself (which links a setting to a section and renders the HTML controls)...
-	   $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
-		  $wp_customize, //Pass the $wp_customize object (required)
-		  'forrrest_link_textcolor', //Set a unique ID for the control
-		  array(
-			 'label'      => __( 'Link Color', 'forrrest' ), //Admin-visible name of the control
-			 'settings'   => 'link_textcolor', //Which setting to load and manipulate (serialized is okay)
-			 'priority'   => 10, //Determines the order this control appears in for the specified section
-			 'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-		  ) 
-	   ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
+			$wp_customize, //Pass the $wp_customize object (required)
+			'forrrest_link_textcolor', //Set a unique ID for the control
+			array(
+			'label'      => __( 'Page Link Color', 'forrrest' ), //Admin-visible name of the control
+			'settings'   => 'link_textcolor', //Which setting to load and manipulate (serialized is okay)
+			'priority'   => 10, //Determines the order this control appears in for the specified section
+			'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+			) 
+			) );
 
-	   $wp_customize->add_control( new WP_Customize_Color_Control( //Instantiate the color control class
-		$wp_customize, //Pass the $wp_customize object (required)
-		'forrrest_nav_background', //Set a unique ID for the control
-		array(
-		   'label'      => __( 'Navigation Background', 'forrrest' ), //Admin-visible name of the control
-		   'settings'   => 'nav_background', //Which setting to load and manipulate (serialized is okay)
-		   'priority'   => 10, //Determines the order this control appears in for the specified section
-		   'section'    => 'colors', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
-		) 
-	 ) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize,
+			'forrrest_nav_background', 
+			array(
+			'label'      => __( 'Navigation Background', 'forrrest' ),
+			'settings'   => 'nav_background', 
+			'priority'   => 10,
+			'section'    => 'colors', 
+			) 
+			) );
+
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 
+			'forrrest_nav_link_textcolor', 
+			array(
+			'label'      => __( 'Navigation Link Color', 'forrrest' ), 
+			'settings'   => 'nav_link_textcolor', 
+			'priority'   => 10, 
+			'section'    => 'colors',
+			) 
+			) );
+
 	   
 	   //4. We can also change built-in settings by modifying properties. For instance, let's make some stuff use live preview JS...
 	   $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
@@ -95,7 +116,7 @@ class forrrest_Customize {
 			<?php self::generate_css('body', 'background-color', 'background_color', '#'); ?> 
 			<?php self::generate_css('a', 'color', 'link_textcolor'); ?>
 			<?php self::generate_css('.site-header', 'background-color', 'nav_background'); ?>
-
+			<?php self::generate_css('.primary-li a', 'color', 'nav_link_textcolor'); ?>
 	   </style> 
 	   <!--/Customizer CSS-->
 	   <?php
