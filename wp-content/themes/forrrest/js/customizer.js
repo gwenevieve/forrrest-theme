@@ -42,7 +42,7 @@
   // Page link color
   wp.customize("link_textcolor", function(value) {
     value.bind(function(newval) {
-      $("a").css("color", newval);
+      $(".page-container a").css("color", newval);
     });
   });
 
@@ -50,6 +50,13 @@
   wp.customize("nav_background", function(value) {
     value.bind(function(newval) {
       $(".site-header").css("background", newval);
+    });
+  });
+
+  // Nav link color
+  wp.customize("nav_link_textcolor", function(value) {
+    value.bind(function(newval) {
+      $(".primary-li a").css("color", newval);
     });
   });
 })(jQuery);

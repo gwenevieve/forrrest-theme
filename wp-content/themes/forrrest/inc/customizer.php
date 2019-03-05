@@ -112,7 +112,7 @@ class forrrest_Customize {
 	   ?>
 	   <!--Customizer CSS--> 
 	   <style type="text/css">
-			<?php self::generate_css('#site-title a', 'color', 'header_textcolor', '#'); ?> 
+			<?php self::generate_css('.site-title', 'color', 'header_textcolor', '#'); ?> 
 			<?php self::generate_css('body', 'background-color', 'background_color', '#'); ?> 
 			<?php self::generate_css('a', 'color', 'link_textcolor'); ?>
 			<?php self::generate_css('.site-header', 'background-color', 'nav_background'); ?>
