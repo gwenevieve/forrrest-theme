@@ -1,0 +1,15 @@
+.site {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.site-content {
+  padding: 0px 40px;
+}
+
+.page-container {
+  grid-column-start: 2;
+  .custom-header-container {
+    padding-bottom: 30px;
+  }
+}

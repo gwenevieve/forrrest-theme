@@ -115,12 +115,15 @@ add_action( 'widgets_init', 'forrrest_widgets_init' );
  * Enqueue scripts and styles.
  */
 function forrrest_scripts() {
-	wp_enqueue_style( 'forrrest-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'forrrest-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	$cssFilePath = glob( get_template_directory() . '/dist/style.min.*.css' );
+	$cssFileURI = get_template_directory_uri() . '/dist/' . basename($cssFilePath[0]);
+	wp_enqueue_style( 'site_main_css', $cssFileURI );
 
-	wp_enqueue_script( 'forrrest-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
+	$jsFilePath = glob( get_template_directory() . '/dist/app.min.*.js' );
+	$jsFileURI = get_template_directory_uri() . '/dist/' . basename($jsFilePath[0]);
+	wp_enqueue_script( 'site_main_js', $jsFileURI , null , null , true );
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

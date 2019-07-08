@@ -1,0 +1,54 @@
+.site-header {
+  padding: 0px 30px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 30%;
+
+  left: 0;
+  height: 100%;
+
+  background: #f4f4f4;
+
+  .site-branding {
+    text-align: center;
+    padding-top: 20px;
+
+    .site-description {
+      margin: 0px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+    }
+    h1 {
+      font-family: 'Lato', sans-serif;
+      font-size: 35px;
+      margin: 0px;
+    }
+    a {
+      text-decoration: none;
+      &:visited {
+        color: unset;
+      }
+    }
+  }
+}
+
+.navigations {
+  .main-navigation,
+  .secondary-navigation {
+    padding: 20px 0px;
+    ul {
+      text-align: center;
+      li {
+        padding: 6px 0px;
+        a {
+          font-family: 'Lato', sans-serif;
+          font-weight: 300;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
