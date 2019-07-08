@@ -1,12 +1,12 @@
-## Project title
+## Forrrest Theme for WordPress
 
-Forrrest Theme for WordPress
+A Gutenberg WordPress theme.
 
 ## Motivation
 
 Building a wee theme for garden enthusiasts without the use of Advanced Custom Fields -- wanted to see how much I could experiment with the customizer UI and Gutenberg editors. Also a bit of a playground for me to experiment with other aspects of WordPress.
 
-## Tech/framework used
+## Tech & Frameworks used
 
 <b>Built with</b>
 
