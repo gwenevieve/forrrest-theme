@@ -116,12 +116,12 @@ add_action( 'widgets_init', 'forrrest_widgets_init' );
  */
 function forrrest_scripts() {
 
-	$cssFilePath = glob( get_template_directory() . '/dist/style.min.*.css' );
-	$cssFileURI = get_template_directory_uri() . '/dist/' . basename($cssFilePath[0]);
+	$cssFilePath = glob( get_template_directory() . '/dist/build/style.min.*.css' );
+	$cssFileURI = get_template_directory_uri() . '/dist/build/' . basename($cssFilePath[0]);
 	wp_enqueue_style( 'site_main_css', $cssFileURI );
 
-	$jsFilePath = glob( get_template_directory() . '/dist/app.min.*.js' );
-	$jsFileURI = get_template_directory_uri() . '/dist/' . basename($jsFilePath[0]);
+	$jsFilePath = glob( get_template_directory() . '/dist/build/app.min.*.js' );
+	$jsFileURI = get_template_directory_uri() . '/dist/build/' . basename($jsFilePath[0]);
 	wp_enqueue_script( 'site_main_js', $jsFileURI , null , null , true );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -1,17 +1,12 @@
 const path = require("path");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ConcatPlugin = require('webpack-concat-plugin');
 const {
 	CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: ["./src/js/app.js", "./src/scss/style.scss"],
-	output: {
-		path: path.resolve(__dirname)
-	},
+	entry: ["./src/scss/style.scss"],
 	module: {
 		rules: [{
 				test: /\.js$/,
@@ -31,30 +26,20 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: "./dist/style.min.[hash:8].css"
-		}),
-		new CleanWebpackPlugin({
-			cleanOnceBeforeBuildPatterns: ['./dist/*']
+			filename: "./build/style.min.[hash:8].css"
 		}),
 		new ConcatPlugin({
 			uglify: true,
 			sourceMap: false,
-			name: 'app',
-			outputPath: '/dist/',
-			fileName: '[name].min.[hash:8].js',
+			outputPath: './build/',
+			fileName: 'app.min.[hash:8].js',
 			filesToConcat: ['./src/js/**'],
 			attributes: {
 				async: true
 			}
+		}),
+		new CleanWebpackPlugin({
+			cleanOnceBeforeBuildPatterns: ['/build/*']
 		})
 	],
-	optimization: {
-		minimizer: [
-			new UglifyJSPlugin({
-				cache: true,
-				parallel: true
-			}),
-			new OptimizeCSSAssetsPlugin({})
-		]
-	},
 };
