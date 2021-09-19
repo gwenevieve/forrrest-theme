@@ -1,4 +1,3 @@
-docker-compose.yml
 .env
 wp-content/themes/twentysixteen/
 wp-content/themes/twentyseventeen/
