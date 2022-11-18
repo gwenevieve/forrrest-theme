@@ -7,7 +7,7 @@
 		"@babel/core": "^7.5.0",
 		"style-loader": "^0.23.1",
 		"webpack": "^4.35.2",
-		"webpack-cli": "^3.3.5"
+		"webpack-cli": "^3.3.12"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",
